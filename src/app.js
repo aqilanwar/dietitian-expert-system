@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
     res.render('homepage')
 })
 
-app.get('/evaluate1', (req, res) => {
-    res.render('evaluate1')
+app.get('/evaluate', (req, res) => {
+    res.render('evaluate')
 })
 
 
