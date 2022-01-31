@@ -15,12 +15,11 @@ app.set('views', viewLocation)
 const partials = path.join(__dirname, '../templates/partials')
 hbs.registerPartials(partials)
 
-const expert = require('./utils/diabetes')
+const expert = require('./utils/working_memory')
 
 app.get('/', (req, res) => {
     res.render('homepage')
 })
-
 app.get('/evaluate', (req, res) => {
     res.render('evaluate')
 })
@@ -29,24 +28,16 @@ app.get('/evaluate', (req, res) => {
 app.get('/evaluation', async (req, res) => {
     try {
         const values = {
-            dp: JSON.parse(req.query.dp),
-            s1: JSON.parse(req.query.s1),
-            s2: JSON.parse(req.query.s2),
-            s3: JSON.parse(req.query.s3),
-            s4: JSON.parse(req.query.s4),
-            s5: JSON.parse(req.query.s5),
-            s6: JSON.parse(req.query.s6),
-            s7: JSON.parse(req.query.s7),
-            s8: JSON.parse(req.query.s8),
-            s9: JSON.parse(req.query.s9),
-            s10: JSON.parse(req.query.s10),
-            fpg: req.query.fpg,
-            gthae: req.query.gthae
+            gender: req.query.gender,
+            weight: JSON.parse(req.query.weight),
+            height: JSON.parse(req.query.height),
+            age: JSON.parse(req.query.age),
+            exercise: JSON.parse(req.query.exercise),
         }
+        console.log(values);
 
 
-        const { dp, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10,
-            fpg, gthae } = values
+        const { gender, weight, height, age, exercise } = values
 
         // if (!dp || !s1 || !s2 || !s3 || !s4 || !s5 || !s6 || !s7 || !s8 || !s9 || !s10 || !fpg || !gthae) {
         //     return res.send({ error: 'you have to ake sure that the query string is correct' })
@@ -55,7 +46,7 @@ app.get('/evaluation', async (req, res) => {
         console.log(values)
 
         //const result = await expert.finalresult(true, 300, 400, false, false, false, false, false, false, false, false, false, false)
-        const result = await expert.finalresult(dp, fpg, gthae, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10)
+        const result = await expert.finalresult(gender, weight, height, age, exercise)
 
         return res.json(result)
     } catch (error) {
@@ -65,14 +56,13 @@ app.get('/evaluation', async (req, res) => {
 
 //fr example
 app.get('/evaluationn', async (req, res) => {
-    const result = await expert.finalresult(false, 10, 100, true, true, false, false, false, false, false, false, false, false)
+    const result = await expert.finalresult('Male', 80, 165, 21, 1)
     //return console.log(result)
     return res.json(result)
 })
 
 
-const port = process.env.PORT || 42069
-
+const port = process.env.PORT || 6969
 
 app.listen(port, () => {
     console.log('port listen ', port)
