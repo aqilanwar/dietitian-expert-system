@@ -18,8 +18,12 @@ const fpgTest = document.querySelector('#fpgTest')
 const gthaeTest = document.querySelector('#gthaeTest')
 const theFinalResult = document.querySelector('#finalResult')
 
+const myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+    keyboard: false
+  })
 const expertresult = async (gender, weight, height,age, exercise) => {
     result_message.textContent = "..loading .."
+    console.log('oi');
     const url = await `evaluation?gender=${gender}&weight=${weight}&height=${height}&age=${age}&exercise=${exercise}`
     //const url = await `/evaluation/?dp=true&fpg=890&gthae=140&s1=true&s2=true&s3=false&s4=false&s5=false&s6=false&s7=false&s8=false&s9=false&s10=false`
 
@@ -65,6 +69,8 @@ questionsform.addEventListener('submit', (e) => {
                 fpgTest.textContent = 'Weight to achieve : ' + data.calculate.weightToAchieve
                 gthaeTest.textContent = 'Activeness :  ' + data.calculate.activeness
                 // theFinalResult.textContent = 'Final Conclusion : ' + data.final_result
+                myModal.toggle();
+
             })
         })
         .catch((err) => {

@@ -15,7 +15,7 @@ app.set('views', viewLocation)
 const partials = path.join(__dirname, '../templates/partials')
 hbs.registerPartials(partials)
 
-const expert = require('./utils/working_memory')
+const expert = require('./utils/inference_engine')
 
 app.get('/', (req, res) => {
     res.render('homepage')
