@@ -6,34 +6,35 @@
                     <form id="questionforms" name="questionforms">
                         <div class="mb-3">
                             <label for="gender" class="form-label">Select gender</label>
-                            <select class="form-select" name="gender" id="gender">
-                                <option disabled selected>Select gender..</option>
+                            <select class="form-select" name="gender" id="gender" required>
+                                <option value="">Choose...</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="gender" class="form-label">How often do you exercise ? </label>
-                            <select id="exercise" required class="form-control">
-                                <option disabled selected>Choose...</option>
-                                <option value="0">No exercise or little exercise</option>
-                                <option value="1">Exercise 1-3 days per week</option>
-                                <option value="2">Exercise 3-5 days per week</option>
-                                <option value="3">Exercise 6-7 days per week</option>
-                                <option value="4">Vigorous Training</option>
-                            </select>
-                        </div>
+
                         <div class="mb-3">
                             <label for="age" class="form-label">Enter your age </label>
-                            <input type="text" class="form-control" id="age" placeholder="Age...">
+                            <input type="number" class="form-control" id="age" min="15" max="65" placeholder="Between 15 - 65 years old" required>
                         </div>
                         <div class="mb-3">
                             <label for="age" class="form-label">Enter your height (cm) </label>
-                            <input type="text" class="form-control" id="height" placeholder="Height...">
+                            <input type="number" min="60" max="300" class="form-control" id="height" placeholder="Between 60 - 300 cm" required>
                         </div>
                         <div class="mb-3">
                             <label for="age" class="form-label">Enter your weight (kg) </label>
-                            <input type="text" class="form-control" id="weight" placeholder="Weight...">
+                            <input type="number" min="15" max="300" class="form-control" id="weight" placeholder="Between 15 - 300 kg" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">How often do you exercise ? </label>
+                            <select class="form-select" name="exercise" id="exercise"  required>
+                                <option value="">Choose...</option>
+                                <option value="Sedentary">No exercise or little exercise</option>
+                                <option value="Low Active">Exercise 1-3 days per week</option>
+                                <option value="Active">Exercise 3-5 days per week</option>
+                                <option value="Very Active">Exercise 6-7 days per week</option>
+                                <option value="Extremely Active">Vigorous Training</option>
+                            </select>
                         </div>
                         <div class="d-flex justify-content-center" style="column-gap: 10px;">
                             <a type="button" href="/" name="start" id="start" class="btn btn-danger">Back</a>
@@ -42,24 +43,25 @@
                     </form>
 
                 </div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                    Launch demo modal
-                </button>
-
+                
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="myModalLabel">Evaluation Result</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p id="ParentTest"></p>
-                        <p id="SymptomsTest"></p>
-                        <p id="fpgTest"></p>
-                        <p id="gthaeTest"></p>
-                        <p id="finalResult"></p>
+                        <h3>Conclusion</h3>
+                        <p id="conclusion"></p>
+                        <hr>
+                        <h3>Recommendation</h3>
+                        <p id="recommendation"></p>
+                        <hr>
+                        <h3>Explanation</h3>
+                        <p id="explanation"></p>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -69,7 +71,7 @@
                 </div>
                 </div>                  
                 <p class="text-center p-2" style="font-size: 14px;">What is this question for ? <a href="">here</a> </p>
-                <p id="results"></p>
+                <p id="error"></p>
 
             </div>
         </div>

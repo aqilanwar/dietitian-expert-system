@@ -8,13 +8,22 @@ const setSymptoms = (gender, weight, height, age, exercise,callback) => {
             age: age,
             exercise: exercise,
         },
-        calculate: {
+        newfact: {
             bmi: '',
             weightToAchieve: '',
-            weightToLose: '',
-            currentCalorieIntake: '',
+            dayToReach: '',
+            calorieIntake: '',
+            caloriegoals: '',
             bmiStatus: '',
-            activeness: '',
+            set: '',
+            setCalorie: '',
+            do: '',
+        },
+    
+        result:{
+            conclusion: '',
+            recommendation: '',
+            explanation: '',  
         },
     }
 

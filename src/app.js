@@ -32,7 +32,7 @@ app.get('/evaluation', async (req, res) => {
             weight: JSON.parse(req.query.weight),
             height: JSON.parse(req.query.height),
             age: JSON.parse(req.query.age),
-            exercise: JSON.parse(req.query.exercise),
+            exercise: req.query.exercise,
         }
         console.log(values);
 
@@ -56,9 +56,10 @@ app.get('/evaluation', async (req, res) => {
 
 //fr example
 app.get('/evaluationn', async (req, res) => {
-    const result = await expert.finalresult('Male', 80, 165, 21, 1)
-    //return console.log(result)
-    return res.json(result)
+    const result = await expert.finalresult('Male', 65, 180, 21, 'Low Active')
+    return console.log(result)
+    // return console.log(result.result.conclusion)
+    // return res.json(result)
 })
 
 

@@ -10,13 +10,11 @@ const exercise = document.querySelector('#exercise')
 // // console.log(p, fpg, gthae, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10)
 
 // //to gt the percentage
-const result_message = document.querySelector('#results')
+const result_message = document.querySelector('#error')
 // //get the pare
-const getParentTest = document.querySelector('#ParentTest')
-const SymptomsTest = document.querySelector('#SymptomsTest')
-const fpgTest = document.querySelector('#fpgTest')
-const gthaeTest = document.querySelector('#gthaeTest')
-const theFinalResult = document.querySelector('#finalResult')
+const explanation = document.querySelector('#explanation')
+const conclusion = document.querySelector('#conclusion')
+const recommendation = document.querySelector('#recommendation')
 
 const myModal = new bootstrap.Modal(document.getElementById('myModal'), {
     keyboard: false
@@ -27,11 +25,9 @@ const expertresult = async (gender, weight, height,age, exercise) => {
     const url = await `evaluation?gender=${gender}&weight=${weight}&height=${height}&age=${age}&exercise=${exercise}`
     //const url = await `/evaluation/?dp=true&fpg=890&gthae=140&s1=true&s2=true&s3=false&s4=false&s5=false&s6=false&s7=false&s8=false&s9=false&s10=false`
 
-    if (gender === 'Choose...' || weight == null || height == null || age == null
-        || exercise === 'Choose...') 
+    if (gender === 'Choose...' || weight == null || height == null || age == null || exercise === 'Choose...') 
         {
         console.log('takleh bro');
-        // return result_message.textContent = '.. you must complete all the questions! ..'
         throw new Error('cannot be accepted')
     }
 
@@ -52,29 +48,21 @@ questionsform.addEventListener('submit', (e) => {
             result.json().then((res) => {
                 console.log('here is the result : ', res)
                 const data = {
-                    calculate: {
-                        bmi: res.calculate.bmi,
-                        weightToAchieve: res.calculate.weightToAchieve,
-                        weightToLose: res.calculate.weightToLose,
-                        currentCalorieIntake: res.calculate.currentCalorieIntake,
-                        bmiStatus: res.calculate.bmiStatus,
-                        activeness: res.calculate.activeness,
+                    result: {
+                        explanation: res.result.explanation,
+                        conclusion: res.result.conclusion,
+                        recommendation: res.result.recommendation,
                     }
-
                 }
-                console.log('ni data' , data.calculate);
-                result_message.textContent = 'BMI : ' + data.calculate.bmi + '%'
-                getParentTest.textContent = 'BMI Status : ' + data.calculate.bmiStatus
-                SymptomsTest.textContent = 'Weight to lose : ' + data.calculate.weightToLose
-                fpgTest.textContent = 'Weight to achieve : ' + data.calculate.weightToAchieve
-                gthaeTest.textContent = 'Activeness :  ' + data.calculate.activeness
-                // theFinalResult.textContent = 'Final Conclusion : ' + data.final_result
+                explanation.textContent =  data.result.explanation,
+                conclusion.textContent =  data.result.conclusion,
+                recommendation.textContent = data.result.recommendation,
                 myModal.toggle();
 
             })
         })
         .catch((err) => {
-            result_message.textContent = '.. you must complete all the questions! ..'
+            result_message.textContent = 'You must complete all the questions!'
             console.log('this is the error ', err)
         })
 })
