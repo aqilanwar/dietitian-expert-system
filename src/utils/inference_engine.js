@@ -230,7 +230,7 @@ const RULE21 = new Rule({
         (facts) => facts.newfact.do == 'You need to increase calorie intake' ,
       ],
     then: (facts) => {
-        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
+        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on Mifflin-St Jeor , your current calorie intake is ' + facts.newfact.calorieIntake + 'Kcal . Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
         facts.newfact.caloriegoals = parseFloat(facts.newfact.calorieIntake) + parseFloat(500);
     },
 });
@@ -242,7 +242,7 @@ const RULE22 = new Rule({
         (facts) => facts.newfact.do == 'You need to maintain calorie intake' ,
       ],
     then: (facts) => {
-        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
+        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on Mifflin-St Jeor , your current calorie intake is ' + facts.newfact.calorieIntake + 'Kcal . Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
         facts.newfact.caloriegoals = parseFloat(facts.newfact.calorieIntake) ;
     },
 });
@@ -254,7 +254,7 @@ const RULE23 = new Rule({
         (facts) => facts.newfact.do == 'You need to cut calorie intake' ,
       ],
     then: (facts) => {
-        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
+        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on Mifflin-St Jeor , your current calorie intake is ' + facts.newfact.calorieIntake + 'Kcal . Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
         facts.newfact.caloriegoals = parseFloat(facts.newfact.calorieIntake) - parseFloat(500) ;
     },
 });
@@ -276,7 +276,7 @@ const RULE24 = new Rule({
         if(facts.newfact.bmiStatus == 'Underweight'){
             facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Normal'){
-            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do +  '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Overweight'){
             facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }
