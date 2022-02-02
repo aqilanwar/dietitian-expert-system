@@ -63,7 +63,7 @@ app.get('/evaluationn', async (req, res) => {
 })
 
 
-const port = process.env.PORT || 6969
+const port = process.env.PORT || 4200
 
 app.listen(port, () => {
     console.log('port listen ', port)
