@@ -7,9 +7,7 @@ const height = document.querySelector('#height')
 const age = document.querySelector('#age')
 const exercise = document.querySelector('#exercise')
 
-// // console.log(p, fpg, gthae, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10)
 
-// //to gt the percentage
 const result_message = document.querySelector('#error')
 // //get the pare
 const explanation = document.querySelector('#explanation')
