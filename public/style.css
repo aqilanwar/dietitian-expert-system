@@ -3,11 +3,8 @@
 }
 
 body {
-    background-image: url('img/bg-1.png');
-    /* background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 
-    background-position: center center; */
+    background-image: url('img/bg-3.png');
+
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-size:cover;
