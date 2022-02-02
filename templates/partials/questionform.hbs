@@ -44,33 +44,58 @@
 
                 </div>
                 
-                <!-- Modal -->
+                <!-- Modal Result-->
                 <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel">Evaluation Result</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3>Conclusion</h3>
+                            <p id="conclusion"></p>
+                            <hr>
+                            <h3>Recommendation</h3>
+                            <p id="recommendation"></p>
+                            <hr>
+                            <h3>Explanation</h3>
+                            <p id="explanation"></p>
+
+                        </div>
+                        <div class="modal-footer">
+                            {{!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>                  
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">Evaluation Result</h5>
+                        <h5 class="modal-title" style="font-weight:bold" id="staticBackdropLabel">Explanation Facility</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h3>Conclusion</h3>
-                        <p id="conclusion"></p>
-                        <hr>
-                        <h3>Recommendation</h3>
-                        <p id="recommendation"></p>
-                        <hr>
-                        <h3>Explanation</h3>
-                        <p id="explanation"></p>
-
+                        <h5 style="font-weight:bold">Why does the expert system ask the user's age? </h5>
+                        <p>This is because the expert system uses the user's age to determine the category of the patient as each of the categories has different calorie intake per day.</p>
+                        <h5 style="font-weight:bold">Why does the expert system ask the user’s height and weight?</h5>
+                        <p>This is because the expert system uses the user’s height and weight to determine Body Mass Index (BMI). Users with different categories of BMI have different types of food and calorie intake for their health. Besides, the expert system will also give recommendations to users to get a normal BMI. </p>
+                        <h5 style="font-weight:bold">Why does the expert system ask the user’s gender? </h5>
+                        <p>The expert system requires the gender of the users’ because different genders has different basal metabolic rate(BMR) and calorie intake.</p>
+                        <h5 style="font-weight:bold">Why does the expert system ask the user’s exercise activity? </h5>
+                        <p>To calculate Total Daily Energy Expenditure (TDEE) which required user daily activity to predict calorie needed</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
                     </div>
                     </div>
                 </div>
-                </div>                  
-                <p class="text-center p-2" style="font-size: 14px;">What is this question for ? <a href="">here</a> </p>
+                </div>         
+                <p class="text-center p-2" style="font-size: 14px;">What is this question for ? <a style="color: blue;text-decoration: underline; cursor: pointer;" onclick="explanation_fac()">here</a> </p>
                 <p id="error"></p>
 
             </div>

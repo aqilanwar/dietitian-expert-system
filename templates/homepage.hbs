@@ -24,10 +24,34 @@
                 <div class="d-flex justify-content-center mt-5">
                     <a type="submit" name="start" id="start" href="evaluate" class="btn btn-primary">Start Evaluation</a>
                 </div>
-                <p class="text-center p-3">Learn more <a href="evaluate">here</a> </p>
+                <div class="modal fade" id="learnMore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="learnMoreLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" style="font-weight:bold" id="learnMoreLabel">Learn more</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h5 style="font-weight:bold">About</h5>
+                            <p>Dietary Analysis System aiming to help people who have problems with their diet and can't maintain a normal BMI. <br> <br> Diet can refer to the food and drink that a person consumes daily. With a healthy and balanced diet, it can help people to maintain their nutrition and healthy body. <br><br> So this system is made to help those people from 15 years old to 65 years old who seek a healthy diet and lifestyle based on the knowledge that we extract from the interview session of dietitian expert, Miss Eloise Kuyun.</p>
+                            <h5 style="font-weight:bold">How will this system work ?</h5>
+                            <p>This system will require user to undergo assessment to calculate BMI, calorie goals and recommend user to choose the best diet meal plan.</p>
+                            <h5 style="font-weight:bold">Team</h5>
+                            <p>Dietary Analysis System consists of 3 members : Aqil , Akmal and Nasim from UiTM Shah Alam. The knowledge that we acquired are from Miss Eloise Kuyun, a dietitian expert from Sabah</p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>  
+                
+                <p class="text-center p-3">Learn more <a style="color: blue;text-decoration: underline; cursor: pointer;"  data-bs-toggle="modal" data-bs-target="#learnMore">here</a> </p>
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

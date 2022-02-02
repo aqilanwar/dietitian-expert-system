@@ -17,9 +17,16 @@ const recommendation = document.querySelector('#recommendation')
 const myModal = new bootstrap.Modal(document.getElementById('myModal'), {
     keyboard: false
   })
+
+const explanation_facility = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
+    keyboard: false
+  })
+const learnMore = new bootstrap.Modal(document.getElementById('learnMore'), {
+    keyboard: false
+  })
 const expertresult = async (gender, weight, height,age, exercise) => {
     // result_message.textContent = "..loading .."
-    console.log('oi');
+    // console.log('oi');
     const url = await `evaluation?gender=${gender}&weight=${weight}&height=${height}&age=${age}&exercise=${exercise}`
     //const url = await `/evaluation/?dp=true&fpg=890&gthae=140&s1=true&s2=true&s3=false&s4=false&s5=false&s6=false&s7=false&s8=false&s9=false&s10=false`
 
@@ -64,3 +71,11 @@ questionsform.addEventListener('submit', (e) => {
             console.log('this is the error ', err)
         })
 })
+
+function explanation_fac(){
+    explanation_facility.toggle();
+}
+
+function learn_More(){
+    learnMore.toggle();
+}
