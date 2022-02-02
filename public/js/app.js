@@ -18,12 +18,6 @@ const myModal = new bootstrap.Modal(document.getElementById('myModal'), {
     keyboard: false
   })
 
-const explanation_facility = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
-    keyboard: false
-  })
-const learnMore = new bootstrap.Modal(document.getElementById('learnMore'), {
-    keyboard: false
-  })
 const expertresult = async (gender, weight, height,age, exercise) => {
     // result_message.textContent = "..loading .."
     // console.log('oi');
@@ -72,10 +66,3 @@ questionsform.addEventListener('submit', (e) => {
         })
 })
 
-function explanation_fac(){
-    explanation_facility.toggle();
-}
-
-function learn_More(){
-    learnMore.toggle();
-}
