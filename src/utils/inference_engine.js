@@ -230,7 +230,7 @@ const RULE21 = new Rule({
         (facts) => facts.newfact.do == 'You need to increase calorie intake' ,
       ],
     then: (facts) => {
-        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on Mifflin-St Jeor , your current calorie intake is ' + facts.newfact.calorieIntake + 'Kcal . Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
+        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on Mifflin-St Jeor calculation, your current calorie intake is ' + facts.newfact.calorieIntake + 'Kcal . Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
         facts.newfact.caloriegoals = parseFloat(facts.newfact.calorieIntake) + parseFloat(500);
     },
 });
@@ -242,7 +242,7 @@ const RULE22 = new Rule({
         (facts) => facts.newfact.do == 'You need to maintain calorie intake' ,
       ],
     then: (facts) => {
-        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on Mifflin-St Jeor , your current calorie intake is ' + facts.newfact.calorieIntake + 'Kcal . Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
+        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on Mifflin-St Jeor calculation, your current calorie intake is ' + facts.newfact.calorieIntake + 'Kcal . Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
         facts.newfact.caloriegoals = parseFloat(facts.newfact.calorieIntake) ;
     },
 });
@@ -254,7 +254,7 @@ const RULE23 = new Rule({
         (facts) => facts.newfact.do == 'You need to cut calorie intake' ,
       ],
     then: (facts) => {
-        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on Mifflin-St Jeor , your current calorie intake is ' + facts.newfact.calorieIntake + 'Kcal . Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
+        facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on Mifflin-St Jeor calculation, your current calorie intake is ' + facts.newfact.calorieIntake + 'Kcal . Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
         facts.newfact.caloriegoals = parseFloat(facts.newfact.calorieIntake) - parseFloat(500) ;
     },
 });
