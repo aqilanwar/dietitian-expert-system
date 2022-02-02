@@ -272,6 +272,13 @@ const RULE24 = new Rule({
         
         facts.newfact.set = 'Set A : Ayam , daging';
         facts.newfact.setCalorie = 'less than 1000 Kcal';
+        if(facts.newfact.bmiStatus == 'Underweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }else if(facts.newfact.bmiStatus == 'Normal'){
+            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+        }else if(facts.newfact.bmiStatus == 'Overweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }
         facts.result.explanation = 'With the given calorie goal , the food in set A can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
     },
 });
@@ -285,6 +292,13 @@ const RULE25 = new Rule({
     then: (facts) => {
         facts.newfact.set = 'Set B : Ayam , daging';
         facts.newfact.setCalorie = 'around 1000 to 1500 Kcal';
+        if(facts.newfact.bmiStatus == 'Underweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }else if(facts.newfact.bmiStatus == 'Normal'){
+            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+        }else if(facts.newfact.bmiStatus == 'Overweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }
         facts.result.explanation = 'With the given calorie goal , the food in set B can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
 
 
@@ -297,6 +311,13 @@ const RULE26 = new Rule({
     then: (facts) => {
         facts.newfact.set = 'Set C : Ayam , daging';
         facts.newfact.setCalorie = 'around 1500 to 2000 Kcal';
+        if(facts.newfact.bmiStatus == 'Underweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }else if(facts.newfact.bmiStatus == 'Normal'){
+            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+        }else if(facts.newfact.bmiStatus == 'Overweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }
         facts.result.explanation = 'With the given calorie goal , the food in set C can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
     },
 });
@@ -326,6 +347,13 @@ const RULE28 = new Rule({
     then: (facts) => {
         facts.newfact.set = 'Set E : Ayam , daging';
         facts.newfact.setCalorie = 'around 2500 to 3000 Kcal';
+        if(facts.newfact.bmiStatus == 'Underweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }else if(facts.newfact.bmiStatus == 'Normal'){
+            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+        }else if(facts.newfact.bmiStatus == 'Overweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }
         facts.result.explanation = 'With the given calorie goal , the food in set E can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
 
 
@@ -338,6 +366,13 @@ const RULE29 = new Rule({
     then: (facts) => {
         facts.newfact.set = 'Set F : Ayam , daging';
         facts.newfact.setCalorie = 'around 3000 to 3500 Kcal';    
+        if(facts.newfact.bmiStatus == 'Underweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }else if(facts.newfact.bmiStatus == 'Normal'){
+            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+        }else if(facts.newfact.bmiStatus == 'Overweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }
         facts.result.explanation = 'With the given calorie goal , the food in set F can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
 
     },
@@ -349,6 +384,13 @@ const RULE30 = new Rule({
     then: (facts) => {
         facts.newfact.set = 'Set G : Ayam , daging';
         facts.newfact.setCalorie = 'around 3500 to 4000 Kcal';   
+        if(facts.newfact.bmiStatus == 'Underweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }else if(facts.newfact.bmiStatus == 'Normal'){
+            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+        }else if(facts.newfact.bmiStatus == 'Overweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }
         facts.result.explanation = 'With the given calorie goal , the food in set G can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
  
     },
@@ -360,6 +402,13 @@ const RULE31 = new Rule({
     then: (facts) => {
         facts.newfact.set = 'Set H : Ayam , daging';
         facts.newfact.setCalorie = 'around 4000 to 4500 Kcal';   
+        if(facts.newfact.bmiStatus == 'Underweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }else if(facts.newfact.bmiStatus == 'Normal'){
+            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+        }else if(facts.newfact.bmiStatus == 'Overweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }
         facts.result.explanation = 'With the given calorie goal , the food in set H can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
 
     },
@@ -371,6 +420,13 @@ const RULE32 = new Rule({
     then: (facts) => {
         facts.newfact.set = 'Set i : Ayam , daging';
         facts.newfact.setCalorie = 'more than 4500 Kcal';  
+        if(facts.newfact.bmiStatus == 'Underweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }else if(facts.newfact.bmiStatus == 'Normal'){
+            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+        }else if(facts.newfact.bmiStatus == 'Overweight'){
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+        }
         facts.result.explanation = 'With the given calorie goal , the food in set I can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
  
     },

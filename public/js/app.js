@@ -20,7 +20,7 @@ const myModal = new bootstrap.Modal(document.getElementById('myModal'), {
     keyboard: false
   })
 const expertresult = async (gender, weight, height,age, exercise) => {
-    result_message.textContent = "..loading .."
+    // result_message.textContent = "..loading .."
     console.log('oi');
     const url = await `evaluation?gender=${gender}&weight=${weight}&height=${height}&age=${age}&exercise=${exercise}`
     //const url = await `/evaluation/?dp=true&fpg=890&gthae=140&s1=true&s2=true&s3=false&s4=false&s5=false&s6=false&s7=false&s8=false&s9=false&s10=false`
