@@ -244,8 +244,6 @@ const RULE22 = new Rule({
     then: (facts) => {
         facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
         facts.newfact.caloriegoals = parseFloat(facts.newfact.calorieIntake) ;
-        // facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
-
     },
 });
 
@@ -257,7 +255,6 @@ const RULE23 = new Rule({
       ],
     then: (facts) => {
         facts.result.conclusion = 'You are ' + facts.user.weight + 'kg ,'  +facts.user.height+ ' cm height and ' + facts.user.age + ' years old ' + facts.user.gender + '. Based on your BMI = ' + facts.newfact.bmi + ' , you are currently ' + facts.newfact.bmiStatus; 
-
         facts.newfact.caloriegoals = parseFloat(facts.newfact.calorieIntake) - parseFloat(500) ;
     },
 });
@@ -270,14 +267,18 @@ const RULE24 = new Rule({
       ],
     then: (facts) => {
         
-        facts.newfact.set = 'Set A : Ayam , daging';
+        facts.newfact.set = 'Set A';
+        facts.result.food.breakfast = 'Breakfast : Nasi Lemak 1pinggan, Kopi/Teh';
+        facts.result.food.lunch = 'Lunch : Nasi Putih 1/2 pinggan ,Asam Rebus Ikan Kembung 1 ekor, Sambal Tempeh 1senduk 40g, Kacang Buncis Goreng 2 senduk, Belimbing, Air Kosong';
+        facts.result.food.dinner = 'Dinner :  Nasi Putih 1/2 pinggan, Ayam goreng , Belimbing , Air Kosong';
+
         facts.newfact.setCalorie = 'less than 1000 Kcal';
         if(facts.newfact.bmiStatus == 'Underweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Normal'){
-            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Overweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }
         facts.result.explanation = 'With the given calorie goal , the food in set A can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
     },
@@ -290,14 +291,19 @@ const RULE25 = new Rule({
         (facts) => facts.newfact.caloriegoals >= 1000 && facts.newfact.caloriegoals <1500,
       ],
     then: (facts) => {
-        facts.newfact.set = 'Set B : Ayam , daging';
+        facts.newfact.set = 'Set B';
+        facts.result.food.breakfast = 'Breakfast : Bihun putih 1mangkuk , Kuih Cara Berlauk 100gram, Belimbing , Kopi/Teh ';
+        facts.result.food.lunch = 'Lunch :  Nasi Putih 1pinggan , Ayam masak kicap 1ketul, Sayur goreng campur , Buah-buahan, Air kosong';
+        facts.result.food.hitea = 'Hi tea : Pau kacang merah 1biji , Air kosong ';
+        facts.result.food.dinner = 'Dinner :  Nasi Putih 1/2 pinggan, Ayam goreng , Belimbing , Air Kosong';
+
         facts.newfact.setCalorie = 'around 1000 to 1500 Kcal';
         if(facts.newfact.bmiStatus == 'Underweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Normal'){
-            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Overweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }
         facts.result.explanation = 'With the given calorie goal , the food in set B can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
 
@@ -309,14 +315,18 @@ const RULE26 = new Rule({
     name: 'IF calorie goals >= 1500 Kcal AND calorie goals < 2000 Kcal THEN Set C',
     when: (facts) => facts.newfact.caloriegoals >= 1500 && facts.newfact.caloriegoals <2000,
     then: (facts) => {
-        facts.newfact.set = 'Set C : Ayam , daging';
+        facts.newfact.set = 'Set C';
+        facts.result.food.breakfast = 'Breakfast : Nasi Lemak 1pinggan, Belimbing, Kopi/Teh ';
+        facts.result.food.lunch = 'Lunch : Nasi putih 1pinggan, Asam rebus ikan kembung 2ekor, Sambal tempeh 1senduk 40g , Kacang buncis goreng 2senduk , Belimbing, Air kosong';
+        facts.result.food.hitea = 'Hi tea : Pau ayam 1 ketul , Lepat pisang , Buah-buahan , Air kosong ';
+        facts.result.food.dinner = 'Dinner :  Ayam goreng 3 ketul';
         facts.newfact.setCalorie = 'around 1500 to 2000 Kcal';
         if(facts.newfact.bmiStatus == 'Underweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Normal'){
-            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Overweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }
         facts.result.explanation = 'With the given calorie goal , the food in set C can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
     },
@@ -326,14 +336,18 @@ const RULE27 = new Rule({
     name: 'IF calorie goals >= 2000  Kcal AND calorie goals < 2500  Kcal THEN Set D',
     when: (facts) => facts.newfact.caloriegoals >= 2000 && facts.newfact.caloriegoals <2500 ,
     then: (facts) => {
-        facts.newfact.set = 'Set D : Ayam , daging';
+        facts.newfact.set = 'Set D';
+        facts.result.food.breakfast = 'Breakfast : Bihun putih 1mangkuk, Roti Jala 100gram , Belimbing 1biji , Kopi/Teh';
+        facts.result.food.lunch = 'Lunch : Nasi putih 1pinggan, Ayam masak kicap 1ketul , Sayur goreng campur, Buah-buahan, Air kosong ';
+        facts.result.food.hitea = 'Hi tea : Biskut tinggi fiber 3 keping, Buah-buahan, Kopi/teh satu cawan, Air kosong';
+        facts.result.food.dinner = 'Dinner : Lasagna 1 set, Dada Ayam, Pau kacang merah 1biji, Buah-buahan, Kopi/Teh satu cawan, Air kosong';
         facts.newfact.setCalorie = 'around 2000 to 2500 Kcal';
         if(facts.newfact.bmiStatus == 'Underweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Normal'){
-            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Overweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }
 
         facts.result.explanation = 'With the given calorie goal , the food in set D can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
@@ -345,14 +359,18 @@ const RULE28 = new Rule({
     name: 'IF calorie goals >= 2500   Kcal AND calorie goals < 3000 Kcal THEN Set E',
     when: (facts) => facts.newfact.caloriegoals >= 2500  && facts.newfact.caloriegoals <3000  ,
     then: (facts) => {
-        facts.newfact.set = 'Set E : Ayam , daging';
+        facts.newfact.set = 'Set E';
+        facts.result.food.breakfast = 'Breakfast : Bihun putih 1mangkuk, Kuih cara berlauk 100gram, Belimbing 1biji , Kopi/teh satu cawan ';
+        facts.result.food.lunch = 'Lunch : Nasi putih 1pinggan ,ayam masak kicap 1ketul  ,sayur goreng ,Buah-buahan,Biskut tinggi fiber 3 keping ';
+        facts.result.food.hitea = 'Hi tea : Pau kacang merah 1biji , Buah-buahan , Kopi/Teh satu cawan, Air kosong';
+        facts.result.food.dinner = 'Dinner : Nasi goreng ayam 1pinggan , Sate 10 cucuk, Pau kacang merah 1biji, Buah-buahan, Kopi/Teh satu cawan, Air kosong';
         facts.newfact.setCalorie = 'around 2500 to 3000 Kcal';
         if(facts.newfact.bmiStatus == 'Underweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Normal'){
-            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Overweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }
         facts.result.explanation = 'With the given calorie goal , the food in set E can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
 
@@ -364,14 +382,18 @@ const RULE29 = new Rule({
     name: 'IF calorie goals >= 3000 Kcal AND calorie goals < 3500 Kcal THEN Set F',
     when: (facts) => facts.newfact.caloriegoals >= 3000  && facts.newfact.caloriegoals <3500   ,
     then: (facts) => {
-        facts.newfact.set = 'Set F : Ayam , daging';
+        facts.newfact.set = 'Set F';
+        facts.result.food.breakfast = 'Breakfast : Vanilla Protein Shake, Susu Full Cream, + Nasi lemak ayam 1pinggan, Belimbing, Kopi/Teh';
+        facts.result.food.lunch = 'Lunch : Nasi putih 1pinggan, Asam rebus ikan kembung 2ekor , Sambal tempeh 1senduk 40g , Kacang buncis goreng 2senduk ,pau ayam 1ketul , Belimbing, Air kosong';
+        facts.result.food.hitea = 'Hi tea : Lepatpisang 93g, Buah-buahan potong 1biji, Kopi/Teh';
+        facts.result.food.dinner = 'Dinner : Lasagna 1 set, Salad buah 1 hidangan, Ayam Goreng 3 Ketul ';
         facts.newfact.setCalorie = 'around 3000 to 3500 Kcal';    
         if(facts.newfact.bmiStatus == 'Underweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Normal'){
-            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Overweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }
         facts.result.explanation = 'With the given calorie goal , the food in set F can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
 
@@ -382,14 +404,14 @@ const RULE30 = new Rule({
     name: 'IF calorie goals >= 3500 Kcal AND calorie goals < 4000 Kcal THEN Set G',
     when: (facts) => facts.newfact.caloriegoals >= 3500  && facts.newfact.caloriegoals <4000   ,
     then: (facts) => {
-        facts.newfact.set = 'Set G : Ayam , daging';
+        facts.newfact.set = 'Set G';
         facts.newfact.setCalorie = 'around 3500 to 4000 Kcal';   
         if(facts.newfact.bmiStatus == 'Underweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Normal'){
-            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Overweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }
         facts.result.explanation = 'With the given calorie goal , the food in set G can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
  
@@ -400,14 +422,14 @@ const RULE31 = new Rule({
     name: 'IF calorie goals >= 4000  Kcal AND calorie goals < 4500  Kcal THEN Set H',
     when: (facts) => facts.newfact.caloriegoals >= 4000  && facts.newfact.caloriegoals <4500   ,
     then: (facts) => {
-        facts.newfact.set = 'Set H : Ayam , daging';
+        facts.newfact.set = 'Set H';
         facts.newfact.setCalorie = 'around 4000 to 4500 Kcal';   
         if(facts.newfact.bmiStatus == 'Underweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Normal'){
-            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Overweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }
         facts.result.explanation = 'With the given calorie goal , the food in set H can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
 
@@ -418,14 +440,14 @@ const RULE32 = new Rule({
     name: 'IF calorie goals >= 4500 Kcal THEN Set I',
     when: (facts) => facts.newfact.caloriegoals >= 4500 ,
     then: (facts) => {
-        facts.newfact.set = 'Set i : Ayam , daging';
+        facts.newfact.set = 'Set I : Ayam , daging';
         facts.newfact.setCalorie = 'more than 4500 Kcal';  
         if(facts.newfact.bmiStatus == 'Underweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Normal'){
-            facts.result.recommendation = `Since your BMI is ${facts.newfact.bmiStatus} , ${facts.newfact.do } . We recommend you to eat from ${facts.newfact.set } . These food contain ${facts.newfact.setCalorie } `;
+            facts.result.recommendation = 'Since your BMI is ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + '. We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }else if(facts.newfact.bmiStatus == 'Overweight'){
-            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. We recommend you to eat from ' + facts.newfact.set +  ' . These food contain ' + facts.newfact.setCalorie ;
+            facts.result.recommendation = 'Since you are ' + facts.newfact.bmiStatus + ' , ' + facts.newfact.do + ' . To achieve normal BMI , your new weight goal is ' + facts.newfact.weightToAchieve + 'kg . For the solution , we would advise you to take ' + facts.newfact.caloriegoals + ' Kcal per day for ' + facts.newfact.dayToReach + ' days to achieve normal BMI. <br><br> We recommend you to eat from ' + facts.newfact.set + ' : <br><br>' + facts.result.food.breakfast + '<br><br>'  + facts.result.food.lunch + '<br><br>' + facts.result.food.hitea + '<br><br>' + facts.result.food.dinner + '<br><br>' + 'These food contain ' + facts.newfact.setCalorie ;
         }
         facts.result.explanation = 'With the given calorie goal , the food in set I can supply you with enough amount of calorie to maintain energy reservation while doing your routine exercise .'
  

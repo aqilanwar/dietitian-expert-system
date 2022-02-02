@@ -24,6 +24,12 @@ const setSymptoms = (gender, weight, height, age, exercise,callback) => {
             conclusion: '',
             recommendation: '',
             explanation: '',  
+            food: {
+                breakfast: '',
+                lunch: '',
+                hitea: '',
+                dinner: '',
+            }
         },
     }
 

@@ -13,6 +13,7 @@ const result_message = document.querySelector('#error')
 const explanation = document.querySelector('#explanation')
 const conclusion = document.querySelector('#conclusion')
 const recommendation = document.querySelector('#recommendation')
+const food = document.querySelector('#food')
 
 const myModal = new bootstrap.Modal(document.getElementById('myModal'), {
     keyboard: false
@@ -47,15 +48,28 @@ questionsform.addEventListener('submit', (e) => {
             result.json().then((res) => {
                 console.log('here is the result : ', res)
                 const data = {
+                    newfact:{
+                        set: res.result.set,
+                    },
                     result: {
                         explanation: res.result.explanation,
                         conclusion: res.result.conclusion,
                         recommendation: res.result.recommendation,
+                        food: {
+                            breakfast: res.result.food.breakfast,
+                            lunch: res.result.food.lunch,
+                            hitea: res.result.food.hitea,
+                            dinner: res.result.food.dinner,
+
+                        },
                     }
                 }
+                // if (data.newfact.set !== undefined) {
+                //     food = data.result.food.breakfast + '\n' + data.result
+                // }
                 explanation.textContent =  data.result.explanation,
                 conclusion.textContent =  data.result.conclusion,
-                recommendation.textContent = data.result.recommendation,
+                recommendation.innerHTML = data.result.recommendation,
                 myModal.toggle();
 
             })
